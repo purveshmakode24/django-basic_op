@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>home</title>
+</head>
+<body>
+ <h1 align="center">Add Employee Details</h1>
+ <div align="center">
+ <form action="/submit" method="POST">
+ 	{% csrf_token %}
+ 	<table>
+ 		<tr>
+ 			<td>Name:</td>
+ 			<td><input type="text" name="name" required></td>
+ 		</tr>
+ 		<tr>
+ 			<td>Salary:</td>
+ 			<td><input type="number" name="salary" maxlength="8" required></td>
+ 		</tr>
+ 		<tr>
+ 			<td></td>
+ 			<td><button type="submit">Submit</button></td>
+ 		</tr>
+ 	</table>
+ </form>
+ <h3><p>See the details of all Employee <a href="/show">here</a></p></h3>
+</div>
+</body>
+</html>

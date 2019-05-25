@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>show</title>
+</head>
+<body>
+<h1>
+		<table border="1em">
+			<tr>
+				<td>Employee Name</td>
+				<td>Salary</td>
+			</tr>
+			{% for item in data %}
+<!-- 			{% if data is None %}
+			<tr>
+				<td>null</td>
+				<td>null</td>
+			</tr>
+			{% else %} -->
+			<tr>
+				<td>{{item.ename}}</td>
+				<td>{{item.esalary}}</td>
+			</tr>
+<!-- 			{% endif %} -->
+			{% endfor %}
+		</table>
+</h1>		
+</body>
+</html>
