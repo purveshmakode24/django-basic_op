@@ -4,13 +4,22 @@
 	<title>show</title>
 </head>
 <body>
+	<h1 align="center" style="background-color: lightblue">EMPLOYEE DATABASE details:</h1>
+<div align="center">	
 <h1>
+	<form action="/delete" method="POST">
+		{% csrf_token %}
 		<table border="1em">
 			<tr>
 				<td>Employee Name</td>
 				<td>Salary</td>
+				<td>Select</td>
 			</tr>
+
+			
+
 			{% for item in data %}
+		
 <!-- 			{% if data is None %}
 			<tr>
 				<td>null</td>
@@ -20,10 +29,53 @@
 			<tr>
 				<td>{{item.ename}}</td>
 				<td>{{item.esalary}}</td>
+				<td><input type="checkbox" name="datatodelete" value="{{item.ename}}"></td>
 			</tr>
 <!-- 			{% endif %} -->
 			{% endfor %}
 		</table>
-</h1>		
+		<button type="submit" style="width: 100px; height: 30px; color: red">Delete</button>
+	</form>	
+</h1>
+</div>
+<hr width="50%">
+<div align="center">
+	<h1 style="background-color: lightblue">Update salary of Employee:</h1>
+	<form action="/update" method="POST">
+		{% csrf_token %}
+		<!-- <table>
+			<tr>
+				<td></td>
+			</tr>
+		</table> -->
+	<h2>Select Employee name:</h2>	
+	  <select class="dropdownupdate" name="name">
+	  	{% for item in data %}
+	    <option value="{{item.ename}}">{{item.ename}}</option>
+	     {% endfor %}
+	  </select>
+
+  <br><br>
+  	<h2>Update Salary:</h2>
+  	<!-- <script>
+  		// var a = document.getElementById('')
+  		var name ={{item.ename}};
+  		if(dropdownupdate.ename ==name){
+  			var oldsalary = {item.esalary};
+
+  			console.log(oldsalary);
+  			document.getElementById('oldsalary').value =oldsalary;
+  		}
+  	</script> -->
+  	<input type="number" name="newsalary" required>
+  <input type="submit" value="Update">
+</form>
+</div>
+<br>
+<hr width="40%">
+<br>
+<div align="center">
+	<a href="/">GO back to home(Add Employee details) here</a>
+</div>
 </body>
 </html>

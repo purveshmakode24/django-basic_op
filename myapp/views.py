@@ -14,7 +14,7 @@ def submit(request):
 	except Exception as e:
 		print(e)
 	
-	return HttpResponse("Form successfully submitted!")
+	return HttpResponse("<h1 style=\"color:green\">Form successfully submitted!</h1>")
    
 
 def show(request):
@@ -25,3 +25,18 @@ def show(request):
 	}
 
 	return render(request,'show.html',my_dict)
+
+def delete(request):
+	del_entry = request.POST.getlist('datatodelete')
+
+	for item in del_entry:
+		Employee.objects.filter(ename=item).delete()
+
+	return HttpResponse("<h1>Data has been Deleted!</h1>")
+
+def update(request):
+	name = request.POST.get('name')
+	newsalary = request.POST.get('newsalary')
+	Employee.objects.filter(ename=name).update(esalary=newsalary)
+
+	return HttpResponse("<h1>Employee salary has been updated!</h1>")

@@ -22,4 +22,7 @@ urlpatterns = [
     path('', views.home),
     path('submit', views.submit),
     path('show', views.show),
+    path('delete', views.delete),
+    path('update', views.update)
 ]
+
